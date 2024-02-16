@@ -1,7 +1,13 @@
 let rainSound;
+let ichigoSound;
 
 const STATE_START = 0;
 const STATE_RAIN = 1;
+
+const ICHIGO_DELAY = 8;
+const ICHIGO_VOL = 0.13;
+const RAIN_VOL = 0.003;
+
 let currState = STATE_START;
 
 class Snow {
@@ -41,15 +47,21 @@ function setup() {
     }
 
     rainSound = loadSound("resources/rain.mp3");
-    rainSound.setVolume(0.003);
+    ichigoSound = loadSound("resources/ichigo.mp3");
+
     drawSnow();
 }
   
 function draw() {
     if (currState == STATE_RAIN) {
+        if (!fullscreen()) {
+            fullscreen(true);
+        }
         if (rainSound.isLoaded() && !rainSound.isPlaying()) {
-            rainSound.play();
+            rainSound.play(0, 1, RAIN_VOL);
             rainSound.setLoop(true);
+
+            ichigoSound.play(ICHIGO_DELAY, 1, ICHIGO_VOL);
         }
         drawSnow();
     }
