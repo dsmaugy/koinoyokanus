@@ -10,6 +10,7 @@ const RAIN_VOL = 0.003;
 
 let currState = STATE_START;
 
+let justResized = false;
 class Snow {
 
     delta = 8;
@@ -23,8 +24,10 @@ class Snow {
     moveDown() {
         this.x -= this.delta;
         this.y += this.delta;
+        this.delta += 0.01;
 
         if (this.x <= 0 || this.y >= height) {
+            this.delta = 8;
             if (int(random(0, 1) < 0.5)) {
                 // start on top
                 this.y = 0;
@@ -41,6 +44,7 @@ class Snow {
 var snowList = [];
 
 function setup() {
+    console.log("w: " + windowWidth + " h: " + windowHeight);
     createCanvas(windowWidth, windowHeight);
     for (let i = 0; i < 100; i++) {
         snowList.push(new Snow(int(random(0, width)), int(random(0, height)), int(random(2, 8))));
@@ -53,6 +57,11 @@ function setup() {
 }
   
 function draw() {
+    if (currState == STATE_START && justResized) {
+        drawSnow();
+        justResized = false;
+    }
+
     if (currState == STATE_RAIN) {
         if (!fullscreen()) {
             fullscreen(true);
@@ -84,6 +93,7 @@ function windowResized() {
           marginWidth = round(float(css.marginLeft) + float(css.marginRight)),
           marginHeight = round(float(css.marginTop) + float(css.marginBottom)),
           w = windowWidth - marginWidth, h = windowHeight - marginHeight;
-  
+    
+    justResized = true;
     resizeCanvas(w, h, true);
 }
