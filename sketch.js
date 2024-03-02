@@ -4,9 +4,12 @@ let ichigoSound;
 const STATE_START = 0;
 const STATE_RAIN = 1;
 
-const ICHIGO_DELAY = 8;
+const ICHIGO_DELAY = 1; // should be 8 for production
 const ICHIGO_VOL = 0.13;
 const RAIN_VOL = 0.003;
+
+const wipeRotateSpeed = 0.02;
+let wipeRotateAngle = 0;
 
 let currState = STATE_START;
 
@@ -64,7 +67,7 @@ function draw() {
 
     if (currState == STATE_RAIN) {
         if (!fullscreen()) {
-            fullscreen(true);
+            // fullscreen(true);
         }
         if (rainSound.isLoaded() && !rainSound.isPlaying()) {
             rainSound.play(0, 1, RAIN_VOL);
@@ -72,7 +75,8 @@ function draw() {
 
             ichigoSound.play(ICHIGO_DELAY, 1, ICHIGO_VOL);
         }
-        drawSnow();
+        // drawSnow();
+        wipeAnimation((255, 255, 255));
     }
 }
 
@@ -86,6 +90,38 @@ function drawSnow() {
 
         e.moveDown();
     });
+}
+
+function wipeAnimation(color) {
+    if (wipeRotateAngle < Math.PI) {
+        beginShape();
+        vertex(width/2, height/2);
+        let topCornerAngle = Math.atan((width/2)/(height/2));
+        let bottomCornerAngle = 5;
+        
+
+        if (wipeRotateAngle < topCornerAngle) {
+            // draw tip of line on top of screen
+            let dist = (height/2)*Math.tan(wipeRotateAngle);
+            vertex((width/2) + dist, 0);
+            vertex((width/2) - dist, 0);
+        } else if (wipeRotateAngle > topCornerAngle) {
+            vertex(0, 0);
+            vertex(width, 0);
+            
+            let dist = (width/2)*Math.tan((Math.PI/2) - wipeRotateAngle);
+            vertex(0, height/2 - dist);
+            vertex(width, height/2 - dist);
+        }
+
+        
+        endShape(CLOSE);
+
+        wipeRotateAngle += wipeRotateSpeed;
+    } else {
+        // it's already done!
+        background(color)
+    }
 }
 
 function windowResized() {
