@@ -3,15 +3,20 @@ let ichigoSound;
 
 const STATE_START = 0;
 const STATE_RAIN = 1;
+const STATE_INTRO_TYPE = 2;
 
-const ICHIGO_DELAY = 1; // should be 8 for production
+const ICHIGO_DELAY = 2; // should be 8 for production
 const ICHIGO_VOL = 0.13;
 const RAIN_VOL = 0.003;
 
-const wipeRotateSpeed = 0.02;
-let wipeRotateAngle = 0;
+let transitionSet = new Set();
 
 let currState = STATE_START;
+
+let snowColor;
+let snowBg;
+let snowTransitionT = 0;
+const snowTransitionDelta = 0.03;
 
 let justResized = false;
 class Snow {
@@ -56,12 +61,15 @@ function setup() {
     rainSound = loadSound("resources/rain.mp3");
     ichigoSound = loadSound("resources/ichigo.mp3");
 
-    drawSnow();
+    snowColor = color(255, 255, 255);
+    snowBg = color(0, 0, 0);
+    drawSnow(snowBg, snowColor);
 }
   
 function draw() {
+
     if (currState == STATE_START && justResized) {
-        drawSnow();
+        drawSnow(snowBg, snowColor);
         justResized = false;
     }
 
@@ -72,56 +80,44 @@ function draw() {
         if (rainSound.isLoaded() && !rainSound.isPlaying()) {
             rainSound.play(0, 1, RAIN_VOL);
             rainSound.setLoop(true);
-
-            ichigoSound.play(ICHIGO_DELAY, 1, ICHIGO_VOL);
+            
+            transitionState(STATE_RAIN, STATE_INTRO_TYPE, ICHIGO_DELAY)
         }
-        // drawSnow();
-        wipeAnimation((255, 255, 255));
+        drawSnow(snowBg, snowColor);
+    }
+
+    if (currState == STATE_INTRO_TYPE) {
+        if (ichigoSound.isLoaded() && !ichigoSound.isPlaying()) {
+            ichigoSound.play(0, 1, ICHIGO_VOL);
+        }
+        
+        snowBg = lerpColor(color(0, 0, 0), color(255, 255, 255), snowTransitionT);
+        snowColor = lerpColor(color(255, 255, 255), color(20, 20, 20), snowTransitionT);
+        snowTransitionT += snowTransitionDelta;
+
+        callOnce(T_introMessage);
+        drawSnow(snowBg, snowColor);
     }
 }
 
-function drawSnow() {
-    background(0);
+function transitionState(oldState, newState, delay) {
+    let transitionKey = "" + oldState + newState;
+    if (!transitionSet.has(transitionKey)) {
+        transitionSet.add(transitionKey);
+        setTimeout(() => {currState = newState}, delay * 1000);
+    }
+}
 
-    stroke(color(255, 255, 255));
+function drawSnow(snowBg, snowColor) {
+    background(snowBg);
+
+    stroke(snowColor);
     strokeWeight(3);
     snowList.forEach( (e) => {
         line(e.x, e.y, e.x - int(e.length/2), e.y + e.length);
 
         e.moveDown();
     });
-}
-
-function wipeAnimation(color) {
-    if (wipeRotateAngle < Math.PI) {
-        beginShape();
-        vertex(width/2, height/2);
-        let topCornerAngle = Math.atan((width/2)/(height/2));
-        let bottomCornerAngle = 5;
-        
-
-        if (wipeRotateAngle < topCornerAngle) {
-            // draw tip of line on top of screen
-            let dist = (height/2)*Math.tan(wipeRotateAngle);
-            vertex((width/2) + dist, 0);
-            vertex((width/2) - dist, 0);
-        } else if (wipeRotateAngle > topCornerAngle) {
-            vertex(0, 0);
-            vertex(width, 0);
-            
-            let dist = (width/2)*Math.tan((Math.PI/2) - wipeRotateAngle);
-            vertex(0, height/2 - dist);
-            vertex(width, height/2 - dist);
-        }
-
-        
-        endShape(CLOSE);
-
-        wipeRotateAngle += wipeRotateSpeed;
-    } else {
-        // it's already done!
-        background(color)
-    }
 }
 
 function windowResized() {
