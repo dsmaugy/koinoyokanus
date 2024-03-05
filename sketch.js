@@ -6,7 +6,7 @@ const STATE_RAIN = 1;
 const STATE_INTRO_TYPE = 2;
 
 const ICHIGO_DELAY = 2; // should be 8 for production
-const ICHIGO_VOL = 0.13;
+const ICHIGO_VOL = 0; // should be 0.13 for production
 const RAIN_VOL = 0.003;
 
 let transitionSet = new Set();

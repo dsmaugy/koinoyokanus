@@ -73,5 +73,38 @@ p {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Grey with transparency */
     z-index: 5; 
+    text-align: left;
+}
+
+#starting-msg-overlay .end-def {
+    font-weight: 900;
+}
+
+#starting-msg-overlay .title-def {
+    font-size: 56px;
+}
+
+#starting-msg-overlay p {
+    margin-left: 25px;
+}
+
+.continue-button {
+    display: none; /* will be faded in */
+    padding: 10px 20px;
+    background-color: #47665C;
+    color: white;
     text-align: center;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    left: 50%;
+    margin-top: 80px;
+    font-family: "Inconsolata", monospace;
+    font-weight: bold;
+}
+
+.continue-button:hover {
+    background-color: #1A332A;
 }

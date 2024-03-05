@@ -14,7 +14,9 @@ $(document).ready(() => {
 
 function start() {
     let fadeTime = 1500;
-    $('#start-intro').fadeOut(fadeTime);
+    $('#start-intro').fadeOut(fadeTime, function() {
+        $(this).remove();
+    });
     setTimeout(() => {currState = STATE_RAIN}, fadeTime * 1/10);
 }
 
@@ -25,25 +27,49 @@ function introMessage() {
     $("body").append(overlayBox);
 
     let title = "koinoyokan (us)";
-    let def_one = "the feeling upon first meeting someone that you...";
-    let def_two = "";
+    let message = [
+        "\"Koi No Yokan\", is a Japanese phrase that does not mean love at first sight.",
+        "It is closer to love growing eventually.",
+        "It is a feeling that begins, when you meet someone whom you are going to fall in love with.",
+        "You may not feel the love right away,",
+        "but it is inevitable that...",
+        "you will."
+    ];
 
-    animateTypeWrap(overlayBox, title, 40, () => {
-        animateTypeWrap(overlayBox, def_one, 40);
-    }, 1000);
+    let cont_button = $("<button></button>")
+        .addClass("continue-button")
+        .text("continue")
+        .click(() => {
+            overlayBox.find("*:not(.title-def)").each(function() {
+                $(this).fadeOut("slow", function() {
+                    $(this).remove();
+                    callOnce(T_introMessage2);
+                });
+            });
+        });
+
+    animateTypeWrap(overlayBox, title, 230, () => {
+        animateTypeWrap(overlayBox, message[0], 60, () => {
+            animateTypeWrap(overlayBox, message[1], 60, () => {
+                animateTypeWrap(overlayBox, message[2], 60, () => {
+                    animateTypeWrap(overlayBox, message[3], 60, () => {
+                        animateTypeWrap(overlayBox, message[4], 80, () => {
+                            animateTypeWrap(overlayBox, message[5], 100, () => {
+                                overlayBox.append(cont_button);
+                                cont_button.fadeIn("slow");
+                            }, 500, "end-def");
+                        }, 3500);
+                    }, 3000);
+                }, 5000);
+            }, 2500);
+        }, 2500);
+    }, 2500, "title-def");
 }
 
-function animateTypeWrap(selector, fullText, speed, callback=null, delay=100) {
-    let textElem = $("<p></p>");
-    selector.append(textElem);
-    animateType(textElem, fullText, speed, callback, delay);
-}
+function introMessage2() {
 
-function animateType(textElem, fullText, speed, callback=null, delay=100) {
-    if (textElem.text().length < fullText.length) {
-        textElem.append(fullText[textElem.text().length]);
-        setTimeout(animateType, speed, textElem, fullText, speed, callback, delay);
-    } else if (callback) {
-        setTimeout(callback, delay);
-    }
+    let message = [
+        "I still remember when you shared this phrase with me, Du.",
+        "At the time, I thought it , "
+    ];
 }
