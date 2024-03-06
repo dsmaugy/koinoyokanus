@@ -88,6 +88,19 @@ p {
     margin-left: 25px;
 }
 
+#starting-msg-overlay .text-convo {
+    margin-left: 0px;
+    text-align: center;
+}
+
+#starting-msg-overlay .dar-text {
+    color: red;
+}
+
+#starting-msg-overlay .du-text {
+    color: blue;
+}
+
 .continue-button {
     display: none; /* will be faded in */
     padding: 10px 20px;
@@ -103,6 +116,7 @@ p {
     margin-top: 80px;
     font-family: "Inconsolata", monospace;
     font-weight: bold;
+    transform: translateX(-50%);
 }
 
 .continue-button:hover {

@@ -43,33 +43,194 @@ function introMessage() {
             overlayBox.find("*:not(.title-def)").each(function() {
                 $(this).fadeOut("slow", function() {
                     $(this).remove();
-                    callOnce(T_introMessage2);
+                    callOnce(T_message1);
+                });
+            });
+        });
+    
+    
+    // animateTypeWrap(overlayBox, title, 230, () => {
+    //     animateTypeWrap(overlayBox, message[0], 60, () => {
+    //         animateTypeWrap(overlayBox, message[1], 60, () => {
+    //             animateTypeWrap(overlayBox, message[2], 60, () => {
+    //                 animateTypeWrap(overlayBox, message[3], 60, () => {
+    //                     animateTypeWrap(overlayBox, message[4], 80, () => {
+    //                         animateTypeWrap(overlayBox, message[5], 100, () => {
+    //                             overlayBox.append(cont_button);
+    //                             cont_button.fadeIn("slow");
+    //                         }, 500, "end-def");
+    //                     }, 3500);
+    //                 }, 3000);
+    //             }, 5000);
+    //         }, 2500);
+    //     }, 2500);
+    // }, 2500, "title-def");
+
+    // TODO: for debugging!
+    overlayBox.append(cont_button);
+    cont_button.fadeIn("slow");
+}
+
+function message1() {
+
+    let overlayBox = $("#starting-msg-overlay");
+
+    let message = [
+        "I still remember when you first shared this phrase with me.",
+        "And I thought it was such a *delightful* way to describe",
+        "I could feel something there...",
+        "it wasn't quite love yet,",
+        "but I was feeling",
+        "something I had never felt before"
+    ];
+
+    let cont_button = $("<button></button>")
+        .addClass("continue-button")
+        .text("continue")
+        .click(() => {
+            overlayBox.find("*:not(.title-def)").each(function() {
+                $(this).fadeOut("slow", function() {
+                    $(this).remove();
+                    callOnce(T_message2);
                 });
             });
         });
 
-    animateTypeWrap(overlayBox, title, 230, () => {
-        animateTypeWrap(overlayBox, message[0], 60, () => {
-            animateTypeWrap(overlayBox, message[1], 60, () => {
-                animateTypeWrap(overlayBox, message[2], 60, () => {
-                    animateTypeWrap(overlayBox, message[3], 60, () => {
-                        animateTypeWrap(overlayBox, message[4], 80, () => {
-                            animateTypeWrap(overlayBox, message[5], 100, () => {
-                                overlayBox.append(cont_button);
-                                cont_button.fadeIn("slow");
-                            }, 500, "end-def");
-                        }, 3500);
-                    }, 3000);
-                }, 5000);
-            }, 2500);
-        }, 2500);
-    }, 2500, "title-def");
+    // animateTypeWrap(overlayBox, message[0], 60, () => {
+    //     animateTypeWrap(overlayBox, message[1], 60, () => {
+    //         animateTypeWrap(overlayBox, message[2], 60, () => {
+    //             animateTypeWrap(overlayBox, message[3], 60, () => {
+    //                 animateTypeWrap(overlayBox, message[4], 80, () => {
+    //                     animateTypeWrap(overlayBox, message[5], 100, () => {
+    //                         overlayBox.append(cont_button);
+    //                         cont_button.fadeIn("slow");
+    //                     }, 1000);
+    //                 }, 1000);
+    //             }, 1000);
+    //         }, 1000);
+    //     }, 1000);
+    // }, 1000);
+
+    // TODO: for debugging!
+    overlayBox.append(cont_button);
+    cont_button.fadeIn("slow");
+
 }
 
-function introMessage2() {
+function message2() {
+    let overlayBox = $("#starting-msg-overlay");
 
     let message = [
-        "I still remember when you shared this phrase with me, Du.",
-        "At the time, I thought it , "
+        "Even from the first time we chatted",
+        "I could see the shared sense of humor",
+        "i felt like there was some silliness",
+        "and I could be silly back.",
+        ".",
+        ".",
+        "then we traded phone numbers"
     ];
+
+    let cont_button = $("<button></button>")
+        .addClass("continue-button")
+        .text("continue")
+        .click(() => {
+            overlayBox.find("*:not(.title-def)").each(function() {
+                $(this).fadeOut("slow", function() {
+                    $(this).remove();
+                    callOnce(T_message3);
+                });
+            });
+        });
+
+    // animateTypeWrap(overlayBox, message[0], 60, () => {
+    //     // show the bumble pic
+    //     let img = $("<img>");
+    //     img.attr("src", "resources/bumble.jpg");
+    //     img.css({
+    //         'display': 'none',
+    //         'position': 'absolute',
+    //         'top': '40px',  
+    //         'left': '30%',   
+    //         'width': '400px',  
+    //         'height': 'auto',
+    //         'opacity': '35%'   
+    //     })
+    //     overlayBox.append(img);
+    //     img.fadeIn(1000);
+
+    //     animateTypeWrap(overlayBox, message[1], 60, () => {
+    //         animateTypeWrap(overlayBox, message[2], 60, () => {
+    //             animateTypeWrap(overlayBox, message[3], 60, () => {
+    //                 // print the spaces
+    //                 animateTypeWrap(overlayBox, message[4], 200);
+    //                 animateTypeWrap(overlayBox, message[5], 200);
+    //                 animateTypeWrap(overlayBox, message[6], 60, () => {
+    //                     overlayBox.append(cont_button);
+    //                     cont_button.fadeIn("slow");
+    //                 }, 1000)
+    //             }, 1000);
+    //         }, 1000);
+    //     }, 1000);
+    // }, 1000);
+
+
+
+    // TODO: for debugging!
+    overlayBox.append(cont_button);
+    cont_button.fadeIn("slow");
+}
+
+function message3() {
+    let overlayBox = $("#starting-msg-overlay");
+
+    let message = [
+        "hi hello is this darwin?",
+        "yepp! hey du",
+        "and about my fav lorde song... I think hard feelings/loveless",
+        "love the \"this is my favorite tape\" transition lol",
+        "omg good taste",
+        "LMAO i always love doing spotify blend with my friends just to see their favs",
+        "yeaah same I have like 10 blends LOL",
+        "could make it 11 👀",
+        "yeahhhh bet",
+        "link please 🤲"
+    ];
+
+    let cont_button = $("<button></button>")
+        .addClass("continue-button")
+        .text("continue")
+        .click(() => {
+            overlayBox.find("*:not(.title-def)").each(function() {
+                $(this).fadeOut("slow", function() {
+                    $(this).remove();
+                    callOnce(T_message3);
+                });
+            });
+        });
+
+    // TODO: diff fonts and colors
+    animateTypeWrap(overlayBox, message[0], 60, () => {
+        animateTypeWrap(overlayBox, message[1], 60, () => {
+            animateTypeWrap(overlayBox, message[2], 60, () => {
+                animateTypeWrap(overlayBox, message[3], 60, () => {
+                    animateTypeWrap(overlayBox, message[4], 80, () => {
+                        animateTypeWrap(overlayBox, message[5], 100, () => {
+                            animateTypeWrap(overlayBox, message[6], 80, () => {
+                                animateTypeWrap(overlayBox, message[7], 80, () => {
+                                    animateTypeWrap(overlayBox, message[8], 80, () => {
+                                        animateTypeWrap(overlayBox, message[9], 80, () => {
+                                            overlayBox.append(cont_button);
+                                            cont_button.fadeIn("slow");
+                                        }, 1000, "text-convo du-text")
+                                    }, 1000, "text-convo du-text")
+                                }, 1000, "text-convo dar-text")
+                            }, 1000, "text-convo dar-text")
+                        }, 1000, "text-convo du-text");
+                    }, 1000, "text-convo du-text");
+                }, 1000, "text-convo dar-text");
+            }, 1000, "text-convo dar-text");
+        }, 1000, "text-convo dar-text");
+    }, 1000, "text-convo du-text");
+
+
 }
