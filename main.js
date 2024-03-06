@@ -193,7 +193,7 @@ function message3() {
         "yeaah same I have like 10 blends LOL",
         "could make it 11 👀",
         "yeahhhh bet",
-        "link please 🤲"
+        "link please ✋"
     ];
 
     let cont_button = $("<button></button>")
@@ -208,7 +208,6 @@ function message3() {
             });
         });
 
-    // TODO: diff fonts and colors
     animateTypeWrap(overlayBox, message[0], 60, () => {
         animateTypeWrap(overlayBox, message[1], 60, () => {
             animateTypeWrap(overlayBox, message[2], 60, () => {
@@ -234,3 +233,10 @@ function message3() {
 
 
 }
+
+
+// TODO
+// beginning of long texting night
+// everything we've done
+// want to make something permanent, a mark of love
+// picture jumping?

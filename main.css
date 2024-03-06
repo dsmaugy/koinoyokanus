@@ -91,14 +91,18 @@ p {
 #starting-msg-overlay .text-convo {
     margin-left: 0px;
     text-align: center;
+    font-family: "Cutive Mono", monospace;
+    font-weight: bold;
+    font-size: 30px;
+    font-style: italic;
 }
 
 #starting-msg-overlay .dar-text {
-    color: red;
+    color: #65E9EB;
 }
 
 #starting-msg-overlay .du-text {
-    color: blue;
+    color: #EBC665;
 }
 
 .continue-button {
