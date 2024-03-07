@@ -5,6 +5,8 @@ const STATE_START = 0;
 const STATE_RAIN = 1;
 const STATE_INTRO_TYPE = 2;
 
+const STATE_CORNER = 8;
+
 const ICHIGO_DELAY = 2; // should be 8 for production
 const ICHIGO_VOL = 0; // should be 0.13 for production
 const RAIN_VOL = 0.003;
@@ -60,6 +62,7 @@ function setup() {
 
     rainSound = loadSound("resources/rain.mp3");
     ichigoSound = loadSound("resources/ichigo.mp3");
+    cornerSound = loadSound("resources/corner.mp3");
 
     snowColor = color(255, 255, 255);
     snowBg = color(0, 0, 0);
@@ -71,9 +74,7 @@ function draw() {
     if (currState == STATE_START && justResized) {
         drawSnow(snowBg, snowColor);
         justResized = false;
-    }
-
-    if (currState == STATE_RAIN) {
+    } else if (currState == STATE_RAIN) {
         if (!fullscreen()) {
             // fullscreen(true);
         }
@@ -84,9 +85,7 @@ function draw() {
             transitionState(STATE_RAIN, STATE_INTRO_TYPE, ICHIGO_DELAY)
         }
         drawSnow(snowBg, snowColor);
-    }
-
-    if (currState == STATE_INTRO_TYPE) {
+    } else if (currState == STATE_INTRO_TYPE) {
         if (ichigoSound.isLoaded() && !ichigoSound.isPlaying()) {
             ichigoSound.play(0, 1, ICHIGO_VOL);
         }
@@ -97,6 +96,15 @@ function draw() {
 
         callOnce(T_introMessage);
         drawSnow(snowBg, snowColor);
+    } else if (currState == STATE_CORNER) {
+        
+        stroke(30, 200, 220, 5);
+        for (let i = 0; i < 10; i++) {
+        //   strokeWeight((250) / i);
+          let x = width - random(20, 40);
+          let y = 0;
+          line(x, y, width, 30);
+        }
     }
 }
 
@@ -107,6 +115,7 @@ function transitionState(oldState, newState, delay) {
         setTimeout(() => {currState = newState}, delay * 1000);
     }
 }
+
 
 function drawSnow(snowBg, snowColor) {
     background(snowBg);

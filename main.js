@@ -17,7 +17,7 @@ function start() {
     $('#start-intro').fadeOut(fadeTime, function() {
         $(this).remove();
     });
-    setTimeout(() => {currState = STATE_RAIN}, fadeTime * 1/10);
+    setTimeout(() => {currState = STATE_CORNER}, fadeTime * 1/10);
 }
 
 function introMessage() {
@@ -266,28 +266,28 @@ function message4() {
             });
         });
 
-    animateTypeWrap(overlayBox, message[0], 60, () => {
-        animateTypeWrap(overlayBox, message[1], 60, () => {
-            animateTypeWrap(overlayBox, message[2], 60, () => {
-                animateTypeWrap(overlayBox, message[3], 60, () => {
-                    animateTypeWrap(overlayBox, message[4], 80, () => {
-                        animateTypeWrap(overlayBox, message[5], 100, () => {
-                            animateTypeWrap(overlayBox, message[6], 100, () => {
-                                animateTypeWrap(overlayBox, message[7], 100, () => {
-                                    animateTypeWrap(overlayBox, message[8], 100, () => {
-                                        animateTypeWrap(overlayBox, message[9], 100, () => {
-                                            overlayBox.append(cont_button);
-                                            cont_button.fadeIn("slow");
-                                        }, 1000);
-                                    }, 1000);
-                                }, 1000);
-                            }, 1000);
-                        }, 1000);
-                    }, 1000);
-                }, 1000);
-            }, 1000);
-        }, 1000);
-    }, 1000);
+    // animateTypeWrap(overlayBox, message[0], 60, () => {
+    //     animateTypeWrap(overlayBox, message[1], 60, () => {
+    //         animateTypeWrap(overlayBox, message[2], 60, () => {
+    //             animateTypeWrap(overlayBox, message[3], 60, () => {
+    //                 animateTypeWrap(overlayBox, message[4], 80, () => {
+    //                     animateTypeWrap(overlayBox, message[5], 100, () => {
+    //                         animateTypeWrap(overlayBox, message[6], 100, () => {
+    //                             animateTypeWrap(overlayBox, message[7], 100, () => {
+    //                                 animateTypeWrap(overlayBox, message[8], 100, () => {
+    //                                     animateTypeWrap(overlayBox, message[9], 100, () => {
+    //                                         overlayBox.append(cont_button);
+    //                                         cont_button.fadeIn("slow");
+    //                                     }, 1000);
+    //                                 }, 1000);
+    //                             }, 1000);
+    //                         }, 1000);
+    //                     }, 1000);
+    //                 }, 1000);
+    //             }, 1000);
+    //         }, 1000);
+    //     }, 1000);
+    // }, 1000);
 
     // TODO: for debugging!
     overlayBox.append(cont_button);
@@ -322,24 +322,24 @@ function message5() {
             });
         });
 
-    animateTypeWrap(overlayBox, message[0], 60, () => {
-        animateTypeWrap(overlayBox, message[1], 60, () => {
-            animateTypeWrap(overlayBox, message[2], 60, () => {
-                animateTypeWrap(overlayBox, message[3], 60, () => {
-                    animateTypeWrap(overlayBox, message[4], 80, () => {
-                        animateTypeWrap(overlayBox, message[5], 100, () => {
-                            animateTypeWrap(overlayBox, message[6], 100, () => {
-                                animateTypeWrap(overlayBox, message[7], 100, () => {
-                                    overlayBox.append(cont_button);
-                                    cont_button.fadeIn("slow");
-                                }, 1000);
-                            }, 1000);
-                        }, 1000);
-                    }, 1000);
-                }, 1000);
-            }, 1000);
-        }, 1000);
-    }, 1000);
+    // animateTypeWrap(overlayBox, message[0], 60, () => {
+    //     animateTypeWrap(overlayBox, message[1], 60, () => {
+    //         animateTypeWrap(overlayBox, message[2], 60, () => {
+    //             animateTypeWrap(overlayBox, message[3], 60, () => {
+    //                 animateTypeWrap(overlayBox, message[4], 80, () => {
+    //                     animateTypeWrap(overlayBox, message[5], 100, () => {
+    //                         animateTypeWrap(overlayBox, message[6], 100, () => {
+    //                             animateTypeWrap(overlayBox, message[7], 100, () => {
+    //                                 overlayBox.append(cont_button);
+    //                                 cont_button.fadeIn("slow");
+    //                             }, 1000);
+    //                         }, 1000);
+    //                     }, 1000);
+    //                 }, 1000);
+    //             }, 1000);
+    //         }, 1000);
+    //     }, 1000);
+    // }, 1000);
 
     // TODO: for debugging!
     overlayBox.append(cont_button);
@@ -374,36 +374,39 @@ function message6() {
                 $(this).fadeOut("slow", function() {
                     $(this).remove();
                     callOnce(T_message2);
+                    overlayBox.fadeOut("slow", () => {
+                        overlayBox.remove();
+                    });
                 });
             });
         });
 
-    animateTypeWrap(overlayBox, message[0], 60, () => {
-        animateTypeWrap(overlayBox, message[1], 60, () => {
-            animateTypeWrap(overlayBox, message[2], 60, () => {
-                animateTypeWrap(overlayBox, message[3], 60, () => {
-                    animateTypeWrap(overlayBox, message[4], 80, () => {
-                        animateTypeWrap(overlayBox, message[5], 100, () => {
-                            animateTypeWrap(overlayBox, message[6], 100, () => {
-                                animateTypeWrap(overlayBox, message[7], 100, () => {
-                                    animateTypeWrap(overlayBox, message[8], 100, () => {
-                                        animateTypeWrap(overlayBox, message[9], 100, () => {
-                                            animateTypeWrap(overlayBox, message[10], 100, () => {
-                                                animateTypeWrap(overlayBox, message[11], 100, () => {
-                                                    overlayBox.append(cont_button);
-                                                    cont_button.fadeIn("slow");
-                                                }, 1000);
-                                            }, 1000);
-                                        }, 1000);
-                                    }, 1000);
-                                }, 1000);
-                            }, 1000);
-                        }, 1000);
-                    }, 1000);
-                }, 1000);
-            }, 1000);
-        }, 1000);
-    }, 1000);
+    // animateTypeWrap(overlayBox, message[0], 60, () => {
+    //     animateTypeWrap(overlayBox, message[1], 60, () => {
+    //         animateTypeWrap(overlayBox, message[2], 60, () => {
+    //             animateTypeWrap(overlayBox, message[3], 60, () => {
+    //                 animateTypeWrap(overlayBox, message[4], 80, () => {
+    //                     animateTypeWrap(overlayBox, message[5], 100, () => {
+    //                         animateTypeWrap(overlayBox, message[6], 100, () => {
+    //                             animateTypeWrap(overlayBox, message[7], 100, () => {
+    //                                 animateTypeWrap(overlayBox, message[8], 100, () => {
+    //                                     animateTypeWrap(overlayBox, message[9], 100, () => {
+    //                                         animateTypeWrap(overlayBox, message[10], 100, () => {
+    //                                             animateTypeWrap(overlayBox, message[11], 100, () => {
+    //                                                 overlayBox.append(cont_button);
+    //                                                 cont_button.fadeIn("slow");
+    //                                             }, 1000);
+    //                                         }, 1000);
+    //                                     }, 1000);
+    //                                 }, 1000);
+    //                             }, 1000);
+    //                         }, 1000);
+    //                     }, 1000);
+    //                 }, 1000);
+    //             }, 1000);
+    //         }, 1000);
+    //     }, 1000);
+    // }, 1000);
 
     // TODO: for debugging!
     overlayBox.append(cont_button);
@@ -413,8 +416,3 @@ function message6() {
 
 
 
-// TODO
-// beginning of long texting night
-// everything we've done
-// want to make something permanent, a mark of love
-// picture jumping?

@@ -26,3 +26,7 @@ function T_message5() {
 function T_message6() {
     setTimeout(message6, 200);
 }
+
+function T_outro() {
+    
+}
