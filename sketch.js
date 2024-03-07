@@ -12,6 +12,7 @@ const ICHIGO_VOL = 0; // should be 0.13 for production
 const RAIN_VOL = 0.003;
 const CORNER_VOL = 0; // 0.1 for prod?
 
+
 let transitionSet = new Set();
 
 let currState = STATE_START;
@@ -22,6 +23,9 @@ let snowTransitionT = 0;
 const snowTransitionDelta = 0.03;
 
 let grass = [];
+let clouds = [];
+let collage = []
+let snowList = [];
 
 let justResized = false;
 class Snow {
@@ -54,7 +58,30 @@ class Snow {
     }
 }
 
-var snowList = [];
+class Cloud {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.a = random(220, 255);
+    }
+  
+    draw() {
+        noStroke();
+        fill(color(map(mouseY, 0, height, 100, 240), this.a));
+        ellipse(this.x, this.y, 70, 50);
+        ellipse(this.x + 10, this.y + 10, 70, 50);
+        ellipse(this.x - 20, this.y + 10, 70, 50);
+
+        this.move();
+    }
+
+    move() {
+        this.x -= 0.3;
+        if (this.x + 80 <= 0) {
+            this.x = width + random(30);
+        }
+    }
+}
 
 function setup() {
     console.log("w: " + windowWidth + " h: " + windowHeight);
@@ -69,6 +96,15 @@ function setup() {
 
     for(let i = 0; i < 50; i++) {
         grass[i] = random(-5, 5);
+    }
+
+    for (let i = 0; i < 20; i++) {
+        clouds[i] = new Cloud(random(width), random(height-140));
+    }
+
+    collage.push({'name': "resources/compilation/sticker.png", 'sizepct': 14});
+    for (let i = 1; i < 25; i++) {
+        collage.push({'name': "resources/compilation/comp" + i + ".JPG", 'sizepct': 10});
     }
 
     snowColor = color(255, 255, 255);
@@ -107,9 +143,17 @@ function draw() {
         if (cornerSound.isLoaded() && !cornerSound.isPlaying()) {
             cornerSound.play(0, 1, CORNER_VOL);
         }
-        let skyColor = color("#DAE6F2");
-        let sunColor = color("#F0DC4F");
-        let grassColor = color(118, 242, 80, 200); 
+        let skyColorDay = color("#DAE6F2");
+        let skyColorNight = color("#171F45");
+        let sunColorDay = color("#F0DC4F");
+        let sunColorNight = color("#F6F1D5");
+        let grassColorDay = color(118, 242, 80, 200); 
+        let grassColorNight = color("#2D5C1E");
+
+        let skyColor = lerpColor(skyColorDay, skyColorNight, map(mouseX, 0, width, 0, 1));
+        let sunColor = lerpColor(sunColorDay, sunColorNight, map(mouseX, 0, width, 0, 1));
+        let grassColor = lerpColor(grassColorDay, grassColorNight, map(mouseX, 0, width, 0, 1));
+
         background(skyColor);
         noStroke();
         fill(grassColor);
@@ -123,7 +167,7 @@ function draw() {
             for(var k=-50; k<width+50; k=k+2){
                 stroke(grassColor);
                 strokeWeight(2);
-                let wind = map(noise(i * 0.005 * frameCount), 0, 1, -6, 6);
+                let wind = map(noise(i * 0.0025 * frameCount), 0, 1, -6, 6);
                 line(k+p+0.1, z, k+grass[i]+p + wind, z-15+constrain(grass[i],-5,5) + wind/10);
                 i++;
                 if (i==50){
@@ -139,6 +183,8 @@ function draw() {
             stroke(lerpColor(skyColor, sunColor, i/rings));
             line(width-(rings*3-i*3), 0, width, rings*3-i*3);
         }
+
+        clouds.forEach((e) => e.draw());
     }
 }
 
@@ -161,6 +207,13 @@ function drawSnow(snowBg, snowColor) {
 
         e.moveDown();
     });
+}
+
+function mouseClicked() {
+    if (currState == STATE_CORNER) {
+        let collagePic = random(collage);
+        animateJumpingPhoto(collagePic.name, mouseX, mouseY, collagePic.sizepct);
+    }
 }
 
 function windowResized() {
