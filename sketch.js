@@ -10,6 +10,7 @@ const STATE_CORNER = 8;
 const ICHIGO_DELAY = 2; // should be 8 for production
 const ICHIGO_VOL = 0; // should be 0.13 for production
 const RAIN_VOL = 0.003;
+const CORNER_VOL = 0; // 0.1 for prod?
 
 let transitionSet = new Set();
 
@@ -19,6 +20,8 @@ let snowColor;
 let snowBg;
 let snowTransitionT = 0;
 const snowTransitionDelta = 0.03;
+
+let grass = [];
 
 let justResized = false;
 class Snow {
@@ -64,6 +67,10 @@ function setup() {
     ichigoSound = loadSound("resources/ichigo.mp3");
     cornerSound = loadSound("resources/corner.mp3");
 
+    for(let i = 0; i < 50; i++) {
+        grass[i] = random(-5, 5);
+    }
+
     snowColor = color(255, 255, 255);
     snowBg = color(0, 0, 0);
     drawSnow(snowBg, snowColor);
@@ -97,13 +104,40 @@ function draw() {
         callOnce(T_introMessage);
         drawSnow(snowBg, snowColor);
     } else if (currState == STATE_CORNER) {
-        
-        stroke(30, 200, 220, 5);
-        for (let i = 0; i < 10; i++) {
-        //   strokeWeight((250) / i);
-          let x = width - random(20, 40);
-          let y = 0;
-          line(x, y, width, 30);
+        if (cornerSound.isLoaded() && !cornerSound.isPlaying()) {
+            cornerSound.play(0, 1, CORNER_VOL);
+        }
+        let skyColor = color("#DAE6F2");
+        let sunColor = color("#F0DC4F");
+        let grassColor = color(118, 242, 80, 200); 
+        background(skyColor);
+        noStroke();
+        fill(grassColor);
+        for(let i=20; i < width; i += 40){
+            ellipse(i + map(noise(i * 1/50), 0, 1, -20, 20), height-20, 100,60 + map(noise(i * 1/50), 0, 1, -40, 20))
+        }
+
+        let i=0;
+        let p=0;
+        for(var z=height-50; z<=height+30; z=z+5){
+            for(var k=-50; k<width+50; k=k+2){
+                stroke(grassColor);
+                strokeWeight(2);
+                let wind = map(noise(i * 0.005 * frameCount), 0, 1, -6, 6);
+                line(k+p+0.1, z, k+grass[i]+p + wind, z-15+constrain(grass[i],-5,5) + wind/10);
+                i++;
+                if (i==50){
+                    i=0;
+                }
+            }
+           p=p+3;
+        }
+
+        let rings = 100;
+        for (let i = 0; i < rings; i++) {
+            strokeWeight(10);
+            stroke(lerpColor(skyColor, sunColor, i/rings));
+            line(width-(rings*3-i*3), 0, width, rings*3-i*3);
         }
     }
 }
