@@ -38,7 +38,7 @@ function animateJumpingPhoto(name, x, y, size) {
     $("body").append(img);
 
     img.animate({
-        rotate: "+=240deg"
+        rotate: (random(1) < 0.5 ? "-" : "+") + "=240deg"
     }, {
         duration: 10000,
         queue: false,
@@ -63,4 +63,21 @@ function animateJumpingPhoto(name, x, y, size) {
             });
         }
     });
+}
+
+function displayYLTLyrics() {
+    let yltLyrics = [
+        {'line': "Come along with me to my little corner of the world", 'offset_s': 13},
+        {'line': "Dream a little dream in my little corner of the world", 'offset_s': 13},
+        {'line': "You'll soon forget that there's any other place", 'offset_s': 13},
+        {'line': "Tonight, my love, we'll share a sweet embrace", 'offset_s': 13},
+        {'line': "And if you care to stay in my little corner of the world", 'offset_s': 13},
+        {'line': "We could hide away in my little corner of the world", 'offset_s': 13},
+        {'line': "I always knew that I'd find someone like you", 'offset_s': 13},
+        {'line': "So welcome to my little corner of the world", 'offset_s': 13},
+        {'line': "Come along with me to my little corner of the world", 'offset_s': 13},
+        {'line': "Come along with me to my little corner of the world", 'offset_s': 13},
+        {'line': "Come along with me to my little corner of the world", 'offset_s': 13},
+        {'line': "Come along with me to my little corner of the world", 'offset_s': 13}
+    ]
 }
