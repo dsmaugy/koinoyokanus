@@ -103,7 +103,7 @@ function setup() {
     }
 
     collage.push({'name': "resources/compilation/sticker.png", 'sizepct': 14});
-    for (let i = 1; i < 25; i++) {
+    for (let i = 1; i < 30; i++) {
         collage.push({'name': "resources/compilation/comp" + i + ".JPG", 'sizepct': 10});
     }
 

@@ -29,4 +29,5 @@ function T_message6() {
 
 function T_outro() {
     
+    // TODO: transition to STATE_CORNER here
 }

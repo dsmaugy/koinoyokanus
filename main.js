@@ -2,22 +2,25 @@
 
 $(document).ready(() => {
     $("#starting-input").on("input", function() {
-        let inputStr = $(this).val();
+        let inputStr = $(this).val().toLowerCase();
         
-        if (inputStr.toLowerCase() == "bingus") {
+        if (inputStr == "bingus") {
             $(this).prop('disabled', true);
             setTimeout(() => {start()}, 1000);
+        } else if (inputStr == "mr. fresh") {
+            $(this).prop('disabled', true);
+            setTimeout(() => {start(STATE_CORNER)}, 1000);
         }
     });
 
 });
 
-function start() {
+function start(transitionState=STATE_RAIN) {
     let fadeTime = 1500;
     $('#start-intro').fadeOut(fadeTime, function() {
         $(this).remove();
     });
-    setTimeout(() => {currState = STATE_CORNER}, fadeTime * 1/10);
+    setTimeout(() => {currState = transitionState}, fadeTime * 1/10);
 }
 
 function introMessage() {
@@ -373,7 +376,7 @@ function message6() {
             overlayBox.find("*:not(.title-def)").each(function() {
                 $(this).fadeOut("slow", function() {
                     $(this).remove();
-                    callOnce(T_message2);
+                    callOnce(T_outro);
                     overlayBox.fadeOut("slow", () => {
                         overlayBox.remove();
                     });
