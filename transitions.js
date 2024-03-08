@@ -28,6 +28,11 @@ function T_message6() {
 }
 
 function T_outro() {
-    
     // TODO: transition to STATE_CORNER here
+
+    let title = $("<p>transitioning to...</p>").attr("id", "outro-title");
+    let subtitle = $("<p>a place for just dar and du</p>").attr("id", "outro-subtitle");
+    let desc = $("<p>(you can answer \"mr. fresh\" at the beginning to skip to this section)</p>").attr("id", "outro-desc");
+
+    let overlayBox = $("#starting-msg-overlay");
 }
