@@ -107,17 +107,16 @@ function message1() {
     //                     animateTypeWrap(overlayBox, message[5], 100, () => {
     //                         overlayBox.append(cont_button);
     //                         cont_button.fadeIn("slow");
-    //                     }, 1000);
-    //                 }, 1000);
+    //                     }, 2100);
+    //                 }, 2000);
     //             }, 1000);
     //         }, 1000);
-    //     }, 1000);
-    // }, 1000);
+    //     }, 1300);
+    // }, 1400);
 
     // TODO: for debugging!
     overlayBox.append(cont_button);
     cont_button.fadeIn("slow");
-
 }
 
 function message2() {
@@ -161,20 +160,20 @@ function message2() {
     //     overlayBox.append(img);
     //     img.fadeIn(1000);
 
-    //     animateTypeWrap(overlayBox, message[1], 60, () => {
+    //     animateTypeWrap(overlayBox, message[1], 40, () => {
     //         animateTypeWrap(overlayBox, message[2], 60, () => {
     //             animateTypeWrap(overlayBox, message[3], 60, () => {
     //                 // print the spaces
-    //                 animateTypeWrap(overlayBox, message[4], 200);
-    //                 animateTypeWrap(overlayBox, message[5], 200);
+    //                 animateTypeWrap(overlayBox, message[4], 800);
+    //                 animateTypeWrap(overlayBox, message[5], 800);
     //                 animateTypeWrap(overlayBox, message[6], 60, () => {
     //                     overlayBox.append(cont_button);
     //                     cont_button.fadeIn("slow");
-    //                 }, 1000)
-    //             }, 1000);
-    //         }, 1000);
-    //     }, 1000);
-    // }, 1000);
+    //                 }, 2400)
+    //             }, 2000);
+    //         }, 1400);
+    //     }, 1500);
+    // }, 1300);
 
 
 
