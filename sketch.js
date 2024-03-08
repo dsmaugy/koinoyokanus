@@ -164,19 +164,19 @@ function draw() {
 
         let i=0;
         let p=0;
-        for(var z=height-50; z<=height+30; z=z+5){
-            for(var k=-50; k<width+50; k=k+2){
-                stroke(grassColor);
-                strokeWeight(2);
-                let wind = map(noise(i * 0.0025 * frameCount), 0, 1, -6, 6);
-                line(k+p+0.1, z, k+grass[i]+p + wind, z-15+constrain(grass[i],-5,5) + wind/10);
-                i++;
-                if (i==50){
-                    i=0;
-                }
-            }
-           p=p+3;
-        }
+        // for(var z=height-50; z<=height+30; z=z+5){
+        //     for(var k=-50; k<width+50; k=k+2){
+        //         stroke(grassColor);
+        //         strokeWeight(2);
+        //         let wind = map(noise(i * 0.0025 * frameCount), 0, 1, -6, 6);
+        //         line(k+p+0.1, z, k+grass[i]+p + wind, z-15+constrain(grass[i],-5,5) + wind/10);
+        //         i++;
+        //         if (i==50){
+        //             i=0;
+        //         }
+        //     }
+        //    p=p+3;
+        // }
 
         let rings = 100;
         for (let i = 0; i < rings; i++) {
