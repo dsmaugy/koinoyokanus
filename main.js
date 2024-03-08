@@ -377,9 +377,6 @@ function message6() {
                 $(this).fadeOut("slow", function() {
                     $(this).remove();
                     callOnce(T_outro);
-                    overlayBox.fadeOut("slow", () => {
-                        overlayBox.remove();
-                    });
                 });
             });
         });

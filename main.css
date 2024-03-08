@@ -136,16 +136,24 @@ p {
     transform: translateX(-50%);
 }
 
-#outro-title {
-
+.outro-text {
+    display: none;
+    text-align: center;
 }
 
-#outro-subtitle {
-
+.outro-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: salmon;
 }
 
-#outro-desc {
+.outro-subtitle {
+    color: mediumspringgreen;
+    font-size: 24px;
+}
 
+.outro-desc {
+    color: lightgray;
 }
 
 /* 

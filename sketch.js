@@ -8,10 +8,11 @@ const STATE_INTRO_TYPE = 2;
 const STATE_CORNER = 8;
 
 const ICHIGO_DELAY = 2; // should be 8 for production
-const ICHIGO_VOL = 0; // should be 0.13 for production
+const ICHIGO_VOL = 0.13; // should be 0.13 for production
 const RAIN_VOL = 0.003;
-const CORNER_VOL = 0.02; // 0.1 for prod?
+const CORNER_VOL = 0.05; // 0.1 for prod?
 
+let cornerSoundToggle = true;
 
 let transitionSet = new Set();
 
@@ -141,8 +142,19 @@ function draw() {
         drawSnow(snowBg, snowColor);
     } else if (currState == STATE_CORNER) {
         if (cornerSound.isLoaded() && !cornerSound.isPlaying()) {
-            cornerSound.play(0, 1, CORNER_VOL);
-            displayYLTLyrics();
+            if (rainSound.isPlaying()) {
+                rainSound.setVolume(0, 2);
+                rainSound.stop(2);
+            }
+
+            if (ichigoSound.isPlaying()) {
+                ichigoSound.setVolume(0, 2);
+                ichigoSound.stop(2);
+            }
+            
+            cornerSound.play(0, 1, 0);
+            cornerSound.setVolume(CORNER_VOL, 5)
+            displayYLTLyrics(); 
         }
         let skyColorDay = color("#DAE6F2");
         let skyColorNight = color("#171F45");
