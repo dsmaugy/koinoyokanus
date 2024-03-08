@@ -52,26 +52,26 @@ function introMessage() {
         });
     
     
-    // animateTypeWrap(overlayBox, title, 230, () => {
-    //     animateTypeWrap(overlayBox, message[0], 60, () => {
-    //         animateTypeWrap(overlayBox, message[1], 60, () => {
-    //             animateTypeWrap(overlayBox, message[2], 60, () => {
-    //                 animateTypeWrap(overlayBox, message[3], 60, () => {
-    //                     animateTypeWrap(overlayBox, message[4], 80, () => {
-    //                         animateTypeWrap(overlayBox, message[5], 100, () => {
-    //                             overlayBox.append(cont_button);
-    //                             cont_button.fadeIn("slow");
-    //                         }, 500, "end-def");
-    //                     }, 3500);
-    //                 }, 3000);
-    //             }, 5000);
-    //         }, 2500);
-    //     }, 2500);
-    // }, 2500, "title-def");
+    animateTypeWrap(overlayBox, title, 230, () => {
+        animateTypeWrap(overlayBox, message[0], 60, () => {
+            animateTypeWrap(overlayBox, message[1], 60, () => {
+                animateTypeWrap(overlayBox, message[2], 60, () => {
+                    animateTypeWrap(overlayBox, message[3], 60, () => {
+                        animateTypeWrap(overlayBox, message[4], 80, () => {
+                            animateTypeWrap(overlayBox, message[5], 100, () => {
+                                overlayBox.append(cont_button);
+                                cont_button.fadeIn("slow");
+                            }, 500, "end-def");
+                        }, 3500);
+                    }, 3000);
+                }, 5000);
+            }, 2500);
+        }, 2500);
+    }, 2500, "title-def");
 
     // TODO: for debugging!
-    overlayBox.append(cont_button);
-    cont_button.fadeIn("slow");
+    // overlayBox.append(cont_button);
+    // cont_button.fadeIn("slow");
 }
 
 function message1() {
@@ -99,24 +99,24 @@ function message1() {
             });
         });
 
-    // animateTypeWrap(overlayBox, message[0], 60, () => {
-    //     animateTypeWrap(overlayBox, message[1], 60, () => {
-    //         animateTypeWrap(overlayBox, message[2], 60, () => {
-    //             animateTypeWrap(overlayBox, message[3], 60, () => {
-    //                 animateTypeWrap(overlayBox, message[4], 80, () => {
-    //                     animateTypeWrap(overlayBox, message[5], 100, () => {
-    //                         overlayBox.append(cont_button);
-    //                         cont_button.fadeIn("slow");
-    //                     }, 2100);
-    //                 }, 2000);
-    //             }, 1000);
-    //         }, 1000);
-    //     }, 1300);
-    // }, 1400);
+    animateTypeWrap(overlayBox, message[0], 60, () => {
+        animateTypeWrap(overlayBox, message[1], 60, () => {
+            animateTypeWrap(overlayBox, message[2], 60, () => {
+                animateTypeWrap(overlayBox, message[3], 60, () => {
+                    animateTypeWrap(overlayBox, message[4], 80, () => {
+                        animateTypeWrap(overlayBox, message[5], 100, () => {
+                            overlayBox.append(cont_button);
+                            cont_button.fadeIn("slow");
+                        }, 2100);
+                    }, 2000);
+                }, 1000);
+            }, 1000);
+        }, 1300);
+    }, 1400);
 
     // TODO: for debugging!
-    overlayBox.append(cont_button);
-    cont_button.fadeIn("slow");
+    // overlayBox.append(cont_button);
+    // cont_button.fadeIn("slow");
 }
 
 function message2() {
@@ -144,42 +144,42 @@ function message2() {
             });
         });
 
-    // animateTypeWrap(overlayBox, message[0], 60, () => {
-    //     // show the bumble pic
-    //     let img = $("<img>");
-    //     img.attr("src", "resources/bumble.jpg");
-    //     img.css({
-    //         'display': 'none',
-    //         'position': 'absolute',
-    //         'top': '40px',  
-    //         'left': '30%',   
-    //         'width': '400px',  
-    //         'height': 'auto',
-    //         'opacity': '35%'   
-    //     })
-    //     overlayBox.append(img);
-    //     img.fadeIn(1000);
+    animateTypeWrap(overlayBox, message[0], 60, () => {
+        // show the bumble pic
+        let img = $("<img>");
+        img.attr("src", "resources/bumble.jpg");
+        img.css({
+            'display': 'none',
+            'position': 'absolute',
+            'top': '169px',  
+            'left': '30%',   
+            'width': '400px',  
+            'height': 'auto',
+            'opacity': '35%'   
+        })
+        overlayBox.append(img);
+        img.fadeIn(1000);
 
-    //     animateTypeWrap(overlayBox, message[1], 40, () => {
-    //         animateTypeWrap(overlayBox, message[2], 60, () => {
-    //             animateTypeWrap(overlayBox, message[3], 60, () => {
-    //                 // print the spaces
-    //                 animateTypeWrap(overlayBox, message[4], 800);
-    //                 animateTypeWrap(overlayBox, message[5], 800);
-    //                 animateTypeWrap(overlayBox, message[6], 60, () => {
-    //                     overlayBox.append(cont_button);
-    //                     cont_button.fadeIn("slow");
-    //                 }, 2400)
-    //             }, 2000);
-    //         }, 1400);
-    //     }, 1500);
-    // }, 1300);
+        animateTypeWrap(overlayBox, message[1], 40, () => {
+            animateTypeWrap(overlayBox, message[2], 60, () => {
+                animateTypeWrap(overlayBox, message[3], 60, () => {
+                    // print the spaces
+                    animateTypeWrap(overlayBox, message[4], 800);
+                    animateTypeWrap(overlayBox, message[5], 800);
+                    animateTypeWrap(overlayBox, message[6], 60, () => {
+                        overlayBox.append(cont_button);
+                        cont_button.fadeIn("slow");
+                    }, 2400)
+                }, 2000);
+            }, 1400);
+        }, 1500);
+    }, 1300);
 
 
 
     // TODO: for debugging!
-    overlayBox.append(cont_button);
-    cont_button.fadeIn("slow");
+    // overlayBox.append(cont_button);
+    // cont_button.fadeIn("slow");
 }
 
 function message3() {
@@ -210,32 +210,32 @@ function message3() {
             });
         });
 
-    // animateTypeWrap(overlayBox, message[0], 60, () => {
-    //     animateTypeWrap(overlayBox, message[1], 60, () => {
-    //         animateTypeWrap(overlayBox, message[2], 60, () => {
-    //             animateTypeWrap(overlayBox, message[3], 60, () => {
-    //                 animateTypeWrap(overlayBox, message[4], 80, () => {
-    //                     animateTypeWrap(overlayBox, message[5], 100, () => {
-    //                         animateTypeWrap(overlayBox, message[6], 80, () => {
-    //                             animateTypeWrap(overlayBox, message[7], 80, () => {
-    //                                 animateTypeWrap(overlayBox, message[8], 80, () => {
-    //                                     animateTypeWrap(overlayBox, message[9], 80, () => {
-    //                                         overlayBox.append(cont_button);
-    //                                         cont_button.fadeIn("slow");
-    //                                     }, 1000, "text-convo du-text")
-    //                                 }, 1000, "text-convo du-text")
-    //                             }, 1000, "text-convo dar-text")
-    //                         }, 1000, "text-convo dar-text")
-    //                     }, 1000, "text-convo du-text");
-    //                 }, 1000, "text-convo du-text");
-    //             }, 1000, "text-convo dar-text");
-    //         }, 1000, "text-convo dar-text");
-    //     }, 1000, "text-convo dar-text");
-    // }, 1000, "text-convo du-text");
+    animateTypeWrap(overlayBox, message[0], 60, () => {
+        animateTypeWrap(overlayBox, message[1], 60, () => {
+            animateTypeWrap(overlayBox, message[2], 60, () => {
+                animateTypeWrap(overlayBox, message[3], 60, () => {
+                    animateTypeWrap(overlayBox, message[4], 80, () => {
+                        animateTypeWrap(overlayBox, message[5], 60, () => {
+                            animateTypeWrap(overlayBox, message[6], 80, () => {
+                                animateTypeWrap(overlayBox, message[7], 80, () => {
+                                    animateTypeWrap(overlayBox, message[8], 80, () => {
+                                        animateTypeWrap(overlayBox, message[9], 80, () => {
+                                            overlayBox.append(cont_button);
+                                            cont_button.fadeIn("slow");
+                                        }, 2000, "text-convo du-text")
+                                    }, 700, "text-convo du-text")
+                                }, 1300, "text-convo dar-text")
+                            }, 1000, "text-convo dar-text")
+                        }, 1500, "text-convo du-text");
+                    }, 600, "text-convo du-text");
+                }, 1200, "text-convo dar-text");
+            }, 1300, "text-convo dar-text");
+        }, 700, "text-convo dar-text");
+    }, 800, "text-convo du-text");
 
     // TODO: for debugging!
-    overlayBox.append(cont_button);
-    cont_button.fadeIn("slow");
+    // overlayBox.append(cont_button);
+    // cont_button.fadeIn("slow");
 
 }
 
@@ -268,32 +268,32 @@ function message4() {
             });
         });
 
-    // animateTypeWrap(overlayBox, message[0], 60, () => {
-    //     animateTypeWrap(overlayBox, message[1], 60, () => {
-    //         animateTypeWrap(overlayBox, message[2], 60, () => {
-    //             animateTypeWrap(overlayBox, message[3], 60, () => {
-    //                 animateTypeWrap(overlayBox, message[4], 80, () => {
-    //                     animateTypeWrap(overlayBox, message[5], 100, () => {
-    //                         animateTypeWrap(overlayBox, message[6], 100, () => {
-    //                             animateTypeWrap(overlayBox, message[7], 100, () => {
-    //                                 animateTypeWrap(overlayBox, message[8], 100, () => {
-    //                                     animateTypeWrap(overlayBox, message[9], 100, () => {
-    //                                         overlayBox.append(cont_button);
-    //                                         cont_button.fadeIn("slow");
-    //                                     }, 1000);
-    //                                 }, 1000);
-    //                             }, 1000);
-    //                         }, 1000);
-    //                     }, 1000);
-    //                 }, 1000);
-    //             }, 1000);
-    //         }, 1000);
-    //     }, 1000);
-    // }, 1000);
+    animateTypeWrap(overlayBox, message[0], 60, () => {
+        animateTypeWrap(overlayBox, message[1], 60, () => {
+            animateTypeWrap(overlayBox, message[2], 30, () => {
+                animateTypeWrap(overlayBox, message[3], 40, () => {
+                    animateTypeWrap(overlayBox, message[4], 40, () => {
+                        animateTypeWrap(overlayBox, message[5], 40, () => {
+                            animateTypeWrap(overlayBox, message[6], 40, () => {
+                                animateTypeWrap(overlayBox, message[7], 40, () => {
+                                    animateTypeWrap(overlayBox, message[8], 100, () => {
+                                        animateTypeWrap(overlayBox, message[9], 100, () => {
+                                            overlayBox.append(cont_button);
+                                            cont_button.fadeIn("slow");
+                                        }, 2000);
+                                    }, 2000);
+                                }, 1500, "text-list");
+                            }, 1500, "text-list");
+                        }, 1500, "text-list");
+                    }, 1500, "text-list");
+                }, 1500, "text-list");
+            }, 1500, "text-list");
+        }, 1200);
+    }, 1000);
 
     // TODO: for debugging!
-    overlayBox.append(cont_button);
-    cont_button.fadeIn("slow");
+    // overlayBox.append(cont_button);
+    // cont_button.fadeIn("slow");
 
 }
 
@@ -324,28 +324,28 @@ function message5() {
             });
         });
 
-    // animateTypeWrap(overlayBox, message[0], 60, () => {
-    //     animateTypeWrap(overlayBox, message[1], 60, () => {
-    //         animateTypeWrap(overlayBox, message[2], 60, () => {
-    //             animateTypeWrap(overlayBox, message[3], 60, () => {
-    //                 animateTypeWrap(overlayBox, message[4], 80, () => {
-    //                     animateTypeWrap(overlayBox, message[5], 100, () => {
-    //                         animateTypeWrap(overlayBox, message[6], 100, () => {
-    //                             animateTypeWrap(overlayBox, message[7], 100, () => {
-    //                                 overlayBox.append(cont_button);
-    //                                 cont_button.fadeIn("slow");
-    //                             }, 1000);
-    //                         }, 1000);
-    //                     }, 1000);
-    //                 }, 1000);
-    //             }, 1000);
-    //         }, 1000);
-    //     }, 1000);
-    // }, 1000);
+    animateTypeWrap(overlayBox, message[0], 60, () => {
+        animateTypeWrap(overlayBox, message[1], 60, () => {
+            animateTypeWrap(overlayBox, message[2], 60, () => {
+                animateTypeWrap(overlayBox, message[3], 60, () => {
+                    animateTypeWrap(overlayBox, message[4], 80, () => {
+                        animateTypeWrap(overlayBox, message[5], 100, () => {
+                            animateTypeWrap(overlayBox, message[6], 100, () => {
+                                animateTypeWrap(overlayBox, message[7], 100, () => {
+                                    overlayBox.append(cont_button);
+                                    cont_button.fadeIn("slow");
+                                }, 4000);
+                            }, 800);
+                        }, 1000);
+                    }, 1000);
+                }, 1000);
+            }, 3000);
+        }, 1000);
+    }, 2000);
 
     // TODO: for debugging!
-    overlayBox.append(cont_button);
-    cont_button.fadeIn("slow");
+    // overlayBox.append(cont_button);
+    // cont_button.fadeIn("slow");
 
 }
 
@@ -380,36 +380,36 @@ function message6() {
             });
         });
 
-    // animateTypeWrap(overlayBox, message[0], 60, () => {
-    //     animateTypeWrap(overlayBox, message[1], 60, () => {
-    //         animateTypeWrap(overlayBox, message[2], 60, () => {
-    //             animateTypeWrap(overlayBox, message[3], 60, () => {
-    //                 animateTypeWrap(overlayBox, message[4], 80, () => {
-    //                     animateTypeWrap(overlayBox, message[5], 100, () => {
-    //                         animateTypeWrap(overlayBox, message[6], 100, () => {
-    //                             animateTypeWrap(overlayBox, message[7], 100, () => {
-    //                                 animateTypeWrap(overlayBox, message[8], 100, () => {
-    //                                     animateTypeWrap(overlayBox, message[9], 100, () => {
-    //                                         animateTypeWrap(overlayBox, message[10], 100, () => {
-    //                                             animateTypeWrap(overlayBox, message[11], 100, () => {
-    //                                                 overlayBox.append(cont_button);
-    //                                                 cont_button.fadeIn("slow");
-    //                                             }, 1000);
-    //                                         }, 1000);
-    //                                     }, 1000);
-    //                                 }, 1000);
-    //                             }, 1000);
-    //                         }, 1000);
-    //                     }, 1000);
-    //                 }, 1000);
-    //             }, 1000);
-    //         }, 1000);
-    //     }, 1000);
-    // }, 1000);
+    animateTypeWrap(overlayBox, message[0], 60, () => {
+        animateTypeWrap(overlayBox, message[1], 60, () => {
+            animateTypeWrap(overlayBox, message[2], 60, () => {
+                animateTypeWrap(overlayBox, message[3], 60, () => {
+                    animateTypeWrap(overlayBox, message[4], 80, () => {
+                        animateTypeWrap(overlayBox, message[5], 100, () => {
+                            animateTypeWrap(overlayBox, message[6], 100, () => {
+                                animateTypeWrap(overlayBox, message[7], 100, () => {
+                                    animateTypeWrap(overlayBox, message[8], 100, () => {
+                                        animateTypeWrap(overlayBox, message[9], 100, () => {
+                                            animateTypeWrap(overlayBox, message[10], 100, () => {
+                                                animateTypeWrap(overlayBox, message[11], 100, () => {
+                                                    overlayBox.append(cont_button);
+                                                    cont_button.fadeIn("slow");
+                                                }, 3000);
+                                            }, 1000);
+                                        }, 2000);
+                                    }, 1000);
+                                }, 2000);
+                            }, 1000);
+                        }, 5000);
+                    }, 3200);
+                }, 1000);
+            }, 3000);
+        }, 1200);
+    }, 1000);
 
     // TODO: for debugging!
-    overlayBox.append(cont_button);
-    cont_button.fadeIn("slow");
+    // overlayBox.append(cont_button);
+    // cont_button.fadeIn("slow");
 
 }
 

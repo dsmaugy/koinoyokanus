@@ -7,7 +7,7 @@ const STATE_INTRO_TYPE = 2;
 
 const STATE_CORNER = 8;
 
-const ICHIGO_DELAY = 2; // should be 8 for production
+const ICHIGO_DELAY = 8; // should be 8 for production
 const ICHIGO_VOL = 0.13; // should be 0.13 for production
 const RAIN_VOL = 0.003;
 const CORNER_VOL = 0.05; // 0.1 for prod?
@@ -120,7 +120,7 @@ function draw() {
         justResized = false;
     } else if (currState == STATE_RAIN) {
         if (!fullscreen()) {
-            // fullscreen(true);
+            fullscreen(true);
         }
         if (rainSound.isLoaded() && !rainSound.isPlaying()) {
             rainSound.play(0, 1, RAIN_VOL);

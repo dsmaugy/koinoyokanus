@@ -93,7 +93,7 @@ p {
     text-align: center;
     font-family: "Cutive Mono", monospace;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 24px;
     font-style: italic;
 }
 
@@ -154,6 +154,10 @@ p {
 
 .outro-desc {
     color: lightgray;
+}
+
+.text-list {
+    color: burlywood;
 }
 
 /* 
