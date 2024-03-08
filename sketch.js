@@ -158,16 +158,16 @@ function draw() {
         background(skyColor);
         noStroke();
         fill(grassColor);
-        for(let i=20; i < width; i += 40){
-            ellipse(i + map(noise(i * 1/50), 0, 1, -20, 20), height-20, 100,60 + map(noise(i * 1/50), 0, 1, -40, 20))
+        for(let i=20; i < width+41; i += 40){
+            ellipse(i + map(noise(i * 1/50), 0, 1, -20, 20), height-15, 100,60 + map(noise(i * 1/50), 0, 1, -40, 30))
         }
 
         let i=0;
         let p=0;
+        stroke(grassColor);
+        strokeWeight(2);
         // for(var z=height-50; z<=height+30; z=z+5){
         //     for(var k=-50; k<width+50; k=k+2){
-        //         stroke(grassColor);
-        //         strokeWeight(2);
         //         let wind = map(noise(i * 0.0025 * frameCount), 0, 1, -6, 6);
         //         line(k+p+0.1, z, k+grass[i]+p + wind, z-15+constrain(grass[i],-5,5) + wind/10);
         //         i++;
@@ -179,8 +179,8 @@ function draw() {
         // }
 
         let rings = 100;
+        strokeWeight(10);
         for (let i = 0; i < rings; i++) {
-            strokeWeight(10);
             stroke(lerpColor(skyColor, sunColor, i/rings));
             line(width-(rings*3-i*3), 0, width, rings*3-i*3);
         }
