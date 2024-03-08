@@ -10,7 +10,7 @@ const STATE_CORNER = 8;
 const ICHIGO_DELAY = 2; // should be 8 for production
 const ICHIGO_VOL = 0; // should be 0.13 for production
 const RAIN_VOL = 0.003;
-const CORNER_VOL = 0; // 0.1 for prod?
+const CORNER_VOL = 0.02; // 0.1 for prod?
 
 
 let transitionSet = new Set();
@@ -142,6 +142,7 @@ function draw() {
     } else if (currState == STATE_CORNER) {
         if (cornerSound.isLoaded() && !cornerSound.isPlaying()) {
             cornerSound.play(0, 1, CORNER_VOL);
+            displayYLTLyrics();
         }
         let skyColorDay = color("#DAE6F2");
         let skyColorNight = color("#171F45");

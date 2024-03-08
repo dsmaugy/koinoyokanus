@@ -127,6 +127,14 @@ p {
     background-color: #1A332A;
 }
 
+#lyric-box {
+    display: inline;
+    position: absolute;
+    font-size: 20px;
+    background-color: blue;
+    z-index: 10;
+}
+
 /* 
     color scheme:
     #80FFD4
